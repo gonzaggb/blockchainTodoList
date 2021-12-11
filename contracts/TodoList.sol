@@ -13,6 +13,11 @@ contract TodoList {
 
     //array of tasks
     mapping(uint256 => Task) public tasks;
+    event TaskCreated(
+        uint id,
+        string content,
+        bool completed
+    );
 
     constructor() public {
         createTask("Checkout dappuniversitty.com");
@@ -23,5 +28,9 @@ contract TodoList {
         taskCount++;
         //put the new task in the array using the taskCount as the key
         tasks[taskCount] = Task(taskCount, _content, false);
+        emit TaskCreated(taskCount, _content, false);
+
+
+
     }
 }

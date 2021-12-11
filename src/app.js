@@ -12,7 +12,6 @@ App = {
     loadAccount: async () => {
         const accounts = await ethereum.request({ method: 'eth_accounts' });
         App.account = accounts[0];
-        console.log(accounts[0])
     },
 
     loadContract: async () => {
